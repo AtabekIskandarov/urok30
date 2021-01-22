@@ -7,7 +7,7 @@ def homepage(request):
 
 
 def test(request):
-    todo_list = ToDo.objects.all()
+    todo_list = todo.objects.all()
     return render(request, "test.html", {"todo_list": todo_list})
 
 
@@ -24,20 +24,20 @@ def add_todo(request):
 
 
 def delete_todo(request, id):
-    todo = ToDo.objects.get(id=id)
+    todo = todo.objects.get(id=id)
     todo.delete()
     return redirect(test)
 
 
 def mark_todo(request, id):
-    todo = ToDo.objects.get(id=id)
+    todo = todo.objects.get(id=id)
     todo.is_favorite = True
     todo.save()
     return redirect(test)
 
 
 def close_todo(request, id):
-    todo = ToDo.objects.get(id=id)
+    todo = todo.objects.get(id=id)
     todo.is_closed = not todo.is_closed
     todo.save()
     return redirect(test)
