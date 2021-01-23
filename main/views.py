@@ -18,7 +18,7 @@ def second(request):
 def add_todo(request):
     form = request.POST
     text = form["todo_text"]
-    todo = ToDo(text=text)
+    todo = Todo(text=text)
     todo.save()
     return redirect(test)
 
